@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class Lambda02 {
+public class Lambda02_Integers {
 
     public static void main(String[] args) {
         List<Integer> number = new ArrayList<>(Arrays.asList(4, 2, 6, 11, -5, 7, 3, 15));

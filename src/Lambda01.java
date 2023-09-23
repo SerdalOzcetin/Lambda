@@ -61,6 +61,18 @@ public class Lambda01 {
         System.out.print(a + " ");
 
     }
+    /**
+     * <h4> Custom command for print </h4>
+     * <p>thıs command was desıgned for printing wıth certain intervals</p>
+     *
+     * @param a
+     * @Author: Serdal
+     */
+    public static void Print(String a) {
+
+        System.out.print(a + " ");
+
+    }
 
     /**
      * <h4>print the even numbers of the lists</h4>
