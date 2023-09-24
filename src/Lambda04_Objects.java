@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Lambda04_Objects {
@@ -29,6 +26,16 @@ public class Lambda04_Objects {
         System.out.println(orderTheUniStudentNumber(unv));
 
         System.out.println("\n---------------------------------------------------------------------------------------");
+
+        System.out.println(printTheMathDepermant(unv));
+
+        System.out.println("\n---------------------------------------------------------------------------------------");
+
+        System.out.println(printTheGradeCoum(unv));
+
+        System.out.println("\n---------------------------------------------------------------------------------------");
+
+        System.out.println(printTheGradeCoum02(unv));
 
     }
 
@@ -64,4 +71,48 @@ public class Lambda04_Objects {
                 sorted(Comparator.comparing(University::getStudentNumber).reversed()).
                 collect(Collectors.toList()); // converts the stream() ınto List()
     }
+
+    /**
+     * <h4>print The Math Depermant</h4>
+     * @param unv
+     * @return
+     */
+    public static int printTheMathDepermant(List<University> unv){
+
+        return  (int) unv.
+                stream().
+                filter(t->t.getDepartment().toLowerCase().contains("math")).count();
+
+    }
+
+    /**
+     * <h4>print The Grade Coum</h4>
+     * @param unv
+     * @return
+     */
+
+    public static OptionalInt printTheGradeCoum(List<University> unv){
+
+        return unv.
+                stream().
+                filter(t->t.getStudentNumber()>550).
+                mapToInt(t->t.getCoumulative()).max();
+
+    }
+
+    /**
+     *<h4>print The Grade Coum02</h4>
+     * @param unv
+     * @return
+     */
+
+    public static OptionalInt printTheGradeCoum02(List<University> unv) {
+
+        return unv.
+                stream().filter(t->t.getStudentNumber()<1050).
+                mapToInt(t->t.getCoumulative()).
+                min();
+
+    }
+
 }
