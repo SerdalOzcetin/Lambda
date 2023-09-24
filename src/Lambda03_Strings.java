@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Lambda03_Strings {
 
@@ -20,6 +21,26 @@ public class Lambda03_Strings {
         System.out.println("\n---------------------------------------------------------------------------------------");
 
         chrNumberBigInOrder(menu);
+
+        System.out.println("\n---------------------------------------------------------------------------------------");
+
+        checkTheNumberofChr(menu);
+
+        System.out.println("\n---------------------------------------------------------------------------------------");
+
+        checkTheW(menu);
+
+        System.out.println("\n---------------------------------------------------------------------------------------");
+
+        checkTheX(menu);
+
+        System.out.println("\n---------------------------------------------------------------------------------------");
+
+        printTheMaxChr(menu);
+
+        System.out.println("\n---------------------------------------------------------------------------------------");
+
+        orderToLastChrandPrintWithoutFirst(menu);
     }
 
     /**
@@ -73,4 +94,70 @@ public class Lambda03_Strings {
 
      */
 
+    /**
+     * <h4>whether The Number of Chrs are less than 7 or not</h4>
+     * @param meal
+     */
+    public static void checkTheNumberofChr(List<String> meal){
+
+        System.out.println(meal.
+                                stream().
+                                allMatch(t -> t.length() <= 7) ? "List elemants is less than 7" : "List elemest is not less than 7");
+
+    }
+
+    /**
+     * <h4>check The W</h4>
+     * @param meal
+     */
+
+    public static void checkTheW(List<String> meal){
+
+        System.out.println(meal.
+                                stream().
+                                noneMatch(t -> t.startsWith("w")) ? "None of the elements starts with the 'w' " : "Any of the elements starts with the 'w'");
+
+    }
+
+    /**
+     * <h4>check The X</h4>
+     * @param meal
+     */
+    public static void checkTheX(List<String> meal){
+
+        System.out.println(meal.
+                                stream().
+                                anyMatch(t -> t.endsWith("x")) ? "yes" : "is it possible ?");
+
+    }
+
+    /**
+     * <h4>print The Max Chr</h4>
+     * @param meal
+     */
+    public static void printTheMaxChr(List<String> meal){
+
+        Stream<String> maxChar = meal.
+                                    stream().
+                                    sorted(Comparator.comparing(String::length).reversed()).
+                                    limit(1);
+
+        System.out.println(Arrays.toString(maxChar.toArray()));
+
+    }
+
+    /**
+     * <h4>order To Last Chr and Print Without First</h4>
+     * @param meal
+     */
+    public static void orderToLastChrandPrintWithoutFirst(List<String> meal){
+
+        meal.
+                stream().
+                sorted(Comparator.comparing(t->t.charAt(t.length()-1))). // ?????????????*
+                skip(1).
+                forEach(Lambda01::Print);
+
+
+    }
 }
