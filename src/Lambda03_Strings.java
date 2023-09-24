@@ -65,4 +65,12 @@ public class Lambda03_Strings {
 
     }
 
+    /*
+
+    ***anyMatch() --> if there is an element at least for the situation, returns "true"
+    ***allMatch() --> if all elements are suitable for condition, returns "true"
+    ***noneMatch() --> if none of elements suıtable for condıtıon, returns "true"
+
+     */
+
 }
